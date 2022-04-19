@@ -76,6 +76,8 @@ We need to see the difference to have an idea of the MSE in both dataset. Both d
 
 Source : https://heds.nz/posts/training-test-mse-r/ ??
 
+//TODO ??
+
 **Q3**. What happens with the training and test errors (MSE) when we have the two sets more overlapped ?
 
 The mean square error is getting bigger for both dataset as the spread is getting bigger as well. This is logical behavior because as the datas are closer it gets harder to classify them correctly.
@@ -116,6 +118,13 @@ In the cross-validation we can observe that each partition generates values of m
 
 ## Speaker recognition experiments
 
+### Man vs woman - natural
+
+To train our model we use the mean features. We tested with the standard derivation but the MSE was way too big and it needed more Epochs and neurons to start being viable. //TODO expliquer pourquoi c'est mieux ?
+
+Epoch = 60
+Neurons = 15
+
 ![](img/test1.png)
 
 ![](./img/test2.png)
@@ -127,4 +136,44 @@ In the cross-validation we can observe that each partition generates values of m
 ![](./img/conf_mat1.png)
 
 ![](./img/F1_score_1.png)
+
+
+
+### Man vs woman . natural and synthetic
+
+Epoch = 90
+Neurons = 10
+
+![](./img/neuron2.png)
+
+![](./img/hidden_neuron2.png)
+
+![](./img/training3.png)
+
+![](./img/testing3.png)
+
+![](./img/conf_mat2.png)
+
+![](./img/F1_score_2.png)
+
+
+
+###  Man vs woman vs children - natural
+
+Epoch = 80
+Neurons = 10
+
+![](./img/neurons3.png)
+
+![](./img/hidden_neurons3.png)
+
+![](./img/training5.png)
+
+![](./img/testing5.png)
+
+![](./img/conf_matrix3.png)
+
+![](./img/f1_score3.png)
+
+### Custom
 
