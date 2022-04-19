@@ -52,8 +52,6 @@ As the training is done with random weights, we have to train several times, we 
 
 ## 1 Hold-out validation
 
-In hold-out validation the dataset is split in two parts: one part is  used during training and the other is used for testing the  generalization capabilities of the model. This method has the advantage  of being easy to implement. However, in hold-out validation the  generalisation performance is evaluated with a single test, using a  dataset partition that not necessarily represents the whole distribution of the whole dataset. Hence, it can produce some undesirable behaviours that lead to a wrong assessment of the performance of the model. In  this notebook you are going to explore the behaviour of hold-out  validation by simulating datasets with diverse degrees of complexity.
-
 **Q1**. Determine where do we define all the parameters mentioned above.
 
 We define them as constant in the Jupyter Notebook. 
@@ -74,10 +72,6 @@ Cyan is for the training dataset and red is for the testing dataset.
 
 We need to see the difference to have an idea of the MSE in both dataset. Both dataset should have a good MSE. We need all the informations possible to chose the right model. 
 
-Source : https://heds.nz/posts/training-test-mse-r/ ??
-
-//TODO ??
-
 **Q3**. What happens with the training and test errors (MSE) when we have the two sets more overlapped ?
 
 The mean square error is getting bigger for both dataset as the spread is getting bigger as well. This is logical behavior because as the datas are closer it gets harder to classify them correctly.
@@ -93,8 +87,6 @@ The red one is the testing dataset which has only 20% of the datas in our case. 
 It shows the distribution of the MSE for each spread value for the last epoch of the test dataset. 
 
 ## K-fold cross-validation
-
-In k-fold cross-validation the dataset is split in K parts: k-1 parts are used during training and the remaining part is used for testing the generalization capabilities of the model. This method has the advantage of giving more consistent results than hold-out validation. In this notebook you are going to explore the behaviour of k-fold cross-validation by simulating datasets with diverse degrees of complexity.
 
 **Q1**. Determine where do we define all the above mentioned parameters.
 
@@ -120,24 +112,31 @@ In the cross-validation we can observe that each partition generates values of m
 
 ### Man vs woman - natural
 
-To train our model we use the mean features. We tested with the standard derivation but the MSE was way too big and it needed more Epochs and neurons to start being viable. //TODO expliquer pourquoi c'est mieux ?
+To train our model we use the mean features. Standard deviation tells you how spread out the data is, it tells us how different the voice are. which doesn't interest us. We even tested it and the MSE was way too big and it needed more epochs and neurons to start being viable. That's why we ended up by using the mean feature to characterize the MFCC values.
 
-Epoch = 60
-Neurons = 15
+We have 36 women and 36 man in our dataset. We fixed the learning rate to `0.001` and the momentum term to `0.5`. These values are just initial guesses which work well in most of the cases so we did not change them. We first explored the number of epochs to estimate how many iterations of the backpropagation algorithm are enough to find a low training error. This is the result :
 
-![](img/test1.png)
+**Number of epochs**![](img/test1.png)
 
-![](./img/test2.png)
+Between 2 neurons to 16 neurones the training error does improve a little bit and between 16 to 32 neurons it slightly improves. The result of this test indicates that the minimum number of iterations needed are around 16. 
 
-![](./img/training1.png)
+We explored further by testing the complexity of the model (number of hidden neurons) :
+
+**Number of hidden neurons**![](./img/test2.png)
+
+On these graphs we can even see that after 15 neurons there is some overfitting. 
+
+**Number of hidden neurons**![](./img/training1.png)
 
 ![](./img/test3.png)
+
+With this different visualization it is easier to make a choice about the number of epochs and the number of neurons. We made some test as well and we finished with 60 epochs and 15 neurons. (red square)
 
 ![](./img/conf_mat1.png)
 
 ![](./img/F1_score_1.png)
 
-
+We first calculate the F1 score for both man and woman and then make a mean of them two. The resuts are quite accurate as we have an F1 score of 0.97.
 
 ### Man vs woman . natural and synthetic
 
