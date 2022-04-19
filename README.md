@@ -116,7 +116,15 @@ In the cross-validation we can observe that each partition generates values of m
 
 ## Speaker recognition experiments
 
+![](img/test1.png)
 
+![](./img/test2.png)
 
+![](./img/training1.png)
 
+![](./img/test3.png)
+
+![](./img/conf_mat1.png)
+
+![](./img/F1_score_1.png)
 
