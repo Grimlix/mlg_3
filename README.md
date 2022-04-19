@@ -21,32 +21,33 @@ The work is consisted on applying a methodology to evaluate the performence of a
 	- training iterations
 
 The neural network will have this configurations :
-	- 1 hidden layer
-	- 2 hidden neurons
-	- tanh as activation function
-	- learning rate = 0.001
-	- momentum rate = 0.7
-	- training dataset = 80% / testing dataset = 20%
+
+- 1 hidden layer
+- 2 hidden neurons
+- tanh as activation function
+- learning rate = 0.001
+- momentum rate = 0.7
+- training dataset = 80% / testing dataset = 20%
 
 These are the different steps sumarrized :
 
 1. split randomly the dataset to define a training and a test subsets.
 2. chose how many times we iterate over the training set (number of Epochs)
 
-As the split is random, we need to do it many times (N_SPLITS) where the goal is to calculate the mean of error (MSE). 
+As the split is random, we need to do it many times (N_SPLITS) where the goal is to calculate the mean of error (MSE).</br>
 As the training is done with random weights, we have to train several times, we need to do it many times with different randomly initialized wights (N_INITS).
 
 **MSE** = The Mean Squared Error (MSE)  is perhaps the simplest and most common loss function, often taught in  introductory Machine Learning courses. To calculate the MSE, you **take the difference between your model's predictions and the ground truth,  square it, and average it out across the whole dataset**.
 
 **Code**
 
-```create_dataset(DATASET_SIZE, spread)```
+```create_dataset(DATASET_SIZE, spread)```</br>
 ==> Create dataset and we can change the spread to make them superpose in order to make the classification more difficult. 
 
-```split_dataset(dataset, train_test_ratio = 0.8)```
+```split_dataset(dataset, train_test_ratio = 0.8)```</br>
 ==> For hold-out validation it splits the dataset in *dataset_train* and *dataset_test*. We can chose the size of the proportion by giving the size of the *dataset_train*.
 
-```split_dataset(dataset, n_parts=5)```
+```split_dataset(dataset, n_parts=5)```</br>
 ==> For k-fold cross-validation it splits the dataset in *n_parts* where the last one is used for 
 
 ## 1 Hold-out validation
