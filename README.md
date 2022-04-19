@@ -88,8 +88,6 @@ The red one is the testing dataset which has only 20% of the datas in our case. 
 
 **Q5**. What is showing the boxplot summarizing the validation errors of the preceding experiments ?
 
-//TODO J'ai pas trop compris ce que c'est le MSE_test_last parce que c'est ce qu'il utilise pour le graph
-
 It shows the distribution of the MSE for each spread value for the last epoch of the test dataset. 
 
 ## K-fold cross-validation
